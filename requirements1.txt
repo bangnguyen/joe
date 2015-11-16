@@ -1,0 +1,4 @@
+html2text==1.0.0
+python-dateutil==1.0.0
+elasticsearch=2.1.0
+

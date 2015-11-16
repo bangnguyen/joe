@@ -177,12 +177,14 @@ def convert_date(input_value, **kwargs):
         value = re.sub('[^A-Za-z0-9.]+', ' ', input_value).strip()
         patterns_callbacks = \
             {
-                "(.*)ago$": "time_ago_to_seconds(result.group(1))"
+                "(.*)ago$": "time_ago_to_seconds(result.group(1))",
+                "Yesterday(.*)":"yesterday(result.group(1))",
+               "Today(.*)":"today(result.group(1))"
             }
         for k, v in patterns_callbacks.iteritems():
             result = re.search(k, value, re.I)
             if result:
-                return remove_date_time_null(eval(v))
+                return eval(v)
         # Step 2
         value = re.sub('[^A-Za-z0-9]+', ' ', input_value).strip()
         # see https://docs.python.org/2/library/datetime.html
@@ -210,13 +212,23 @@ def convert_date(input_value, **kwargs):
         for i in formats:
             r = convert_date_(value, i, DATE_FORMAT)
             if r:
-                return remove_date_time_null(r)
+                return r
         # Step 3
         value = date_parser.parse(input_value, ignoretz=True)
-        return remove_date_time_null(value.strftime(DATE_FORMAT))
+        return value.strftime(DATE_FORMAT)
     except:
         return None
 
+
+def yesterday(time_string):
+    yesterday_date=(datetime.datetime.now() - timedelta(hours=24)).strftime("%m-%d-%Y")
+    date_string = "%s %s"%(yesterday_date,time_string)
+    return convert_date(date_string)
+
+def today(time_string):
+    today_date=datetime.datetime.now().strftime("%m-%d-%Y")
+    date_string = "%s %s"%(today_date,time_string)
+    return convert_date(date_string)
 
 def time_ago_to_seconds(time_string):
     value = clean_date_time_data(time_string)
@@ -464,3 +476,9 @@ def time_display(sec):
     result = ' '.join(result.split()).strip()
     return result
 
+
+
+if __name__ == '__main__':
+    print convert_date('Yesterday 09:28 PM')
+    print convert_date('11-11-2015 12:05 AM')
+    print convert_date('Today 12:07 pM')
