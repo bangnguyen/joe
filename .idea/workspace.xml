@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de297581-1081-4702-b4c5-52ca8e53148f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/joe/utils/contents.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/joe/spiders/hairlossexperiences.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/joe/utils/allfunctions.py" afterPath="$PROJECT_DIR$/joe/utils/allfunctions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/joe/spiders/baldtruthtalk.py" afterPath="$PROJECT_DIR$/joe/spiders/baldtruthtalk.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/joe/utils/basefunctions.py" afterPath="$PROJECT_DIR$/joe/utils/basefunctions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/joe/utils/datetimefunctions.py" afterPath="$PROJECT_DIR$/joe/utils/datetimefunctions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/joe/utils/html_string.py" afterPath="$PROJECT_DIR$/joe/utils/html_string.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/run_all.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="joe.iws" />
@@ -25,7 +17,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/joe$create_index.coverage" NAME="create_index Coverage Results" MODIFIED="1447763892311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/joe$create_index.coverage" NAME="create_index Coverage Results" MODIFIED="1447764122703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/joe$datetimefunctions.coverage" NAME="datetimefunctions Coverage Results" MODIFIED="1447762543430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/joe/utils" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -62,11 +54,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hairlossexperiences.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="hairlossexperiences.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/joe/spiders/hairlossexperiences.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.47407407" vertical-offset="504" max-vertical-offset="1320">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="1320">
+              <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_all.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_all.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.72" vertical-offset="0" max-vertical-offset="312">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -116,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_index.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="create_index.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create_index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.16" vertical-offset="0" max-vertical-offset="696">
+            <state vertical-scroll-proportion="0.59644973" vertical-offset="0" max-vertical-offset="845">
               <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
               <folding>
                 <element signature="e#46#83#0" expanded="true" />
@@ -155,6 +157,7 @@
         <option value="$PROJECT_DIR$/joe/utils/datetimefunctions.py" />
         <option value="$PROJECT_DIR$/joe/utils/allfunctions.py" />
         <option value="$PROJECT_DIR$/joe/spiders/hairlossexperiences.py" />
+        <option value="$PROJECT_DIR$/run_all.py" />
       </list>
     </option>
   </component>
@@ -759,16 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/create_index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.16" vertical-offset="0" max-vertical-offset="696">
-          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-          <folding>
-            <element signature="e#46#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/joe/spiders/baldtruthtalk.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.6" vertical-offset="0" max-vertical-offset="1032">
@@ -779,9 +772,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/joe/spiders/hairlossexperiences.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.47407407" vertical-offset="504" max-vertical-offset="1320">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state vertical-scroll-proportion="-14.0" vertical-offset="0" max-vertical-offset="1320">
+          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_all.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.72" vertical-offset="0" max-vertical-offset="312">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/create_index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59644973" vertical-offset="0" max-vertical-offset="845">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding>
+            <element signature="e#46#83#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
