@@ -6,8 +6,8 @@ import re
 class Hirlossexperiences(CrawlSpider):
     name = "f2"
     start_urls = [
-        # "http://www.hairlossexperiences.com",
-        "http://www.hairlossexperiences.com/view_topic.php?forum_id=3&id=5051&page=10"
+        "http://www.hairlossexperiences.com",
+        #"http://www.hairlossexperiences.com/view_topic.php?forum_id=3&id=5051&page=10"
     ]
     cpt = 0;
     rules = [
