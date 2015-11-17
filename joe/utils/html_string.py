@@ -1,4 +1,3 @@
-from scrapy import log
 import copy
 import html2text
 from scrapy.selector import Selector

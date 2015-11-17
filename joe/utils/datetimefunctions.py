@@ -476,9 +476,15 @@ def time_display(sec):
     result = ' '.join(result.split()).strip()
     return result
 
+def pairwise(iterable):
+    a = iter(iterable)
+    return izip(a, a)
 
 
 if __name__ == '__main__':
-    print convert_date('Yesterday 09:28 PM')
-    print convert_date('11-11-2015 12:05 AM')
-    print convert_date('Today 12:07 pM')
+    print convert_date(u'\xa0Posted: Fri Sep 26th, 2014 05:43 pm')
+
+
+    #print convert_date('Yesterday 09:28 PM')
+    #print convert_date('11-11-2015 12:05 AM')
+    #print convert_date('Today 12:07 pM')

@@ -3,6 +3,20 @@ from scrapy.http.response.html import HtmlResponse
 from scrapy.http.response.html import TextResponse
 from scrapy.selector.unified import SelectorList
 from scrapy.utils.response import open_in_browser
+from scrapy.spiders import Spider
+from scrapy.selector import Selector
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor as lxml
+from joe.items import JoeItem
+from joe.utils.html_string import *
+from joe.utils.datetimefunctions import *
+from  joe.model import *
+import pdb
+from elasticsearch import Elasticsearch
+from itertools import izip
+es_client = Elasticsearch()
+index_name = "joe"
+comments = "comments"
 def mapping(value, mappings):
     for k in mappings:
         if contains_ignore_case(value, mappings[k]):
@@ -58,7 +72,9 @@ def view(data):
         open_in_browser(TextResponse(url="",encoding='utf-8', body=str(data), request=None))
 
 
-
+def pairwise(iterable):
+    a = iter(iterable)
+    return izip(a, a)
 
 
 

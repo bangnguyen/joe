@@ -4,7 +4,6 @@ from  urlparse import urljoin
 from scrapy.selector.unified import SelectorList
 from scrapy import FormRequest
 from scrapy import Request
-from scrapy import log
 
 
 def make_request(data):
