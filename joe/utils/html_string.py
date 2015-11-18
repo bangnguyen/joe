@@ -44,8 +44,7 @@ def html_to_text(data, encode_ascii=True):
                     value = html2text.html2text(normalize_unicode(i, encode_ascii))
                     result.append(value)
                 except:
-                    log.msg("html_to_text : Ignore  character not in unicode ", level=log.INFO)
-                    # try to convert unicode to text before
+                    pass
             result = ' '.join([normalize_space(i) for i in result if normalize_space(i)]).strip()
         else:
             data = normalize_space(html2text.html2text(data))
