@@ -3,20 +3,21 @@ website = "www.hairrestorationnetwork.com/eve/"
 class Hirlossexperiences(CrawlSpider):
     name = "f3"
     start_urls = [
-        "http://www.hairrestorationnetwork.com/eve/",
+       # "http://www.hairrestorationnetwork.com/eve/",
+        "http://www.hairrestorationnetwork.com/eve/179957-supplier-stylist-wanted-london.html"
     ]
     cpt = 0;
     rules = [
-        Rule(lxml(allow=('hairrestorationnetwork\.com/eve/[a-zAA-z-]+/$',)), callback='parse_cat',
+        Rule(lxml(allow=('hairrestorationnetwork\.com/eve/[a-zAA-z-]+/$',),restrict_xpaths="//tr[.//div[contains(.,'Yesterday ')] or .//div[contains(.,'Today')]]//a"), callback='parse_cat',
              follow=True),
-           Rule(lxml(allow=('hairrestorationnetwork\.com/eve/[a-zAA-z-]+/index\d+\.html$',)), callback='parse_cat',
+           Rule(lxml(allow=('hairrestorationnetwork\.com/eve/[a-zAA-z-]+/index\d+\.html$',),restrict_xpaths="//tr[.//div[contains(.,'Yesterday ')] or .//div[contains(.,'Today')]]//a"), callback='parse_cat',
              follow=True),
-        Rule(lxml(allow=('hairrestorationnetwork\.com/eve/\d+[a-zAA-z-]+\.html$',), ), callback='parse_product')
+        Rule(lxml(allow=('hairrestorationnetwork\.com/eve/\d+[a-zAA-z-]+\.html$',),restrict_xpaths="//table[@id='threadslist']//tr//a" ), callback='parse_product')
     ]
 
     def parse_cat(self, response):
         return
-        print "parse_cat " + response.url
+
 
 
     def parse_product(self, response):
@@ -35,9 +36,7 @@ class Hirlossexperiences(CrawlSpider):
                 try:
                     content= html_to_text( table.xpath(".//tr[4]//text()").extract())
                     comment = Comment(link=link, content=content, date_time=date_time, website=website)
-                    es_id = "%s_%s" % (link, comment.date_time)
-                    es_client.index(index=index_name, doc_type=comments, id=es_id, body=comment.to_dict())
-                    print comment.to_dict()
+                    comment.start_index()
                 except:
                     traceback.print_exc()
                     pass
@@ -46,5 +45,11 @@ class Hirlossexperiences(CrawlSpider):
 
 
 
+    def closed(self, reason):
+        pdb.set_trace()
+        collector = self.crawler.stats._stats
+        collector['website'] = website
+        collector['duration'] =  str(collector['finish_time'] - collector['start_time'])
+        es_client.index(index=index_name, doc_type="reports", body=collector)
 
 

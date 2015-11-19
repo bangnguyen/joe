@@ -36,10 +36,8 @@ class Hairlosshelp(CrawlSpider):
                     if date_time:
                         content=html_to_text(item2.xpath("./td[2]//text()").extract())
                         comment = Comment(link=response.url, content=content, date_time=date_time, website=website)
-                        es_id = "%s_%s" % (response.url, comment.date_time)
-                        print comment.to_dict()
+                        comment.start_index()
 
-                        es_client.index(index=index_name, doc_type=comments, id=es_id, body=comment.to_dict())
                 except:
                     traceback.print_exc()
                     pass
@@ -47,3 +45,8 @@ class Hairlosshelp(CrawlSpider):
 
 
 
+    def closed(self, reason):
+        collector = self.crawler.stats._stats
+        collector['website'] = website
+        collector['duration'] =  str(collector['finish_time'] - collector['start_time'])
+        es_client.index(index=index_name, doc_type="reports", body=collector)

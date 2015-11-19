@@ -24,19 +24,19 @@ class baldgossip(CrawlSpider):
         thread_name = html_to_text(response.xpath("//div[@id='page-body']/h1/text()").extract())
         for table in tables:
             self.cpt += 1
-            print self.cpt
             text_date =html_to_text( table.xpath(".//p[@class='author']/text()[2]").extract())
             date_time = convert_date(text_date)
             if date_time:
                 content = html_to_text(table.xpath(".//div[@class='content']//text()").extract())
-                comment = Comment(link=link, content=content, date_time=date_time, website=website,
-                                  thread_name=thread_name)
-                es_id = "%s_%s" % (link, comment.date_time)
-                es_client.index(index=index_name, doc_type=comments, id=es_id, body=comment.to_dict())
-                print comment.to_dict()
+                comment = Comment(link=link, content=content, date_time=date_time, website=website,thread_name=thread_name)
+                comment.start_index()
 
 
 
 
-
+    def closed(self, reason):
+        collector = self.crawler.stats._stats
+        collector['website'] = website
+        collector['duration'] =  str(collector['finish_time'] - collector['start_time'])
+        es_client.index(index=index_name, doc_type="reports", body=collector)
 

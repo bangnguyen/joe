@@ -41,9 +41,13 @@ class Hirlossexperiences(CrawlSpider):
                     content = html_to_text(table2.xpath("./tr/td[2]//text()").extract())
                     comment = Comment(link=link, content=content, date_time=date_time, website=website,
                                       thread_name=thread_name)
-                    es_id = "%s_%s" % (link, comment.date_time)
-                    es_client.index(index=index_name, doc_type=comments, id=es_id, body=comment.to_dict())
+                    comment.start_index()
 
 
 
 
+    def closed(self, reason):
+        collector = self.crawler.stats._stats
+        collector['website'] = website
+        collector['duration'] =  str(collector['finish_time'] - collector['start_time'])
+        es_client.index(index=index_name, doc_type="reports", body=collector)
