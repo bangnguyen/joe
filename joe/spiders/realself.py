@@ -31,10 +31,11 @@ class Hirlossexperiences(CrawlSpider):
 
 
     def parse_product2(self, response):
+        link_parent = response.request.headers['Referer']
         comments = json.loads(response.body)
         for comment in comments:
             date_time = convert_date(comment['created'])
-            comment = Comment(link=response.url, content=comment['comment'], date_time=date_time, website=website)
+            comment = Comment(link=response.url, content=comment['comment'], date_time=date_time, website=website,link_parent=link_parent)
             comment.start_index()
 
     def closed(self, reason):

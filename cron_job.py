@@ -104,9 +104,12 @@ def send_email(comments, mail_to):
     html = "<style>em {color:red}; tr { line-height: 24px; }</style>"
     html += "<table>"
     for id, comment in enumerate(comments):
-        html += "<tr> <td style='vertical-align: top'><b>%s</b></td>   <td style='width:800px'>%s</td> <td>%s</td> <td><a href='%s'>Click here</a></td>  <td>%s</td></tr>" % (
-            id + 1,
-            comment['highlight'], comment['date_string'], comment['link'], comment['website'])
+        if comment['link_parent']:
+            html += "<tr> <td style='vertical-align: top'><b>%s</b></td>   <td style='width:800px'>%s</td> <td>%s</td> <td><a href='%s'>Click here</a></td>  <td>%s</td> </tr>" % (id + 1,
+                comment['highlight'], comment['date_string'], comment['link'], comment['website'])
+        else:
+            html += "<tr> <td style='vertical-align: top'><b>%s</b></td>   <td style='width:800px'>%s</td> <td>%s</td> <td><a href='%s'>Click here</a></td>  <td><a href='%s'>parent Link</a></td>  <td>%s</td> </tr>" % (id + 1,
+                comment['highlight'], comment['date_string'], comment['link'],comment['link_parent'], comment['website'])
     html += "</table>"
     part2 = MIMEText(html, 'html')
     msg.attach(part2)

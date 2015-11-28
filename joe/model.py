@@ -12,7 +12,7 @@ comments = "comments"
 
 
 class Comment:
-    def __init__(self, link=None, content=None, author=None, date_time=None, thread_name=None, website=None):
+    def __init__(self, link=None, content=None, author=None, date_time=None, thread_name=None, website=None,link_parent = None):
         self.link = link
         self.content = content
         self.date_time = int(time.mktime(datetime.datetime.strptime(date_time, DATE_FORMAT).timetuple()))
@@ -20,6 +20,7 @@ class Comment:
         self.website = website
         self.thread_name = thread_name
         self.update = strftime("%H:%M:%S %d-%m-%Y", gmtime())
+        self.link_parent = link_parent
 
 
     def to_dict(self):
